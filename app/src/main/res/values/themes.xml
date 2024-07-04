@@ -1,12 +1,21 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Base.Theme.CryptoVista" parent="Theme.Material3.DayNight.NoActionBar">
 
-         <item name="colorPrimary">@color/teal</item>
-         <item name="colorPrimaryDark">@color/blue</item>
-         <item name="colorAccent">@color/saffron</item>
-         <item name="backgroundColor">@color/champagne</item>
-         <item name="colorSecondary">@color/orange</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorOnPrimary">@color/champagne</item>
+
+        <item name="colorPrimaryDark">@color/teal</item>
+
+        <item name="colorAccent">@color/saffron</item>
+        <item name="backgroundColor">@color/champagne</item>
+
+        <item name="colorSecondary">@color/orange</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <item name="fontFamily">@font/font_reg</item>
+
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
 
     </style>
 

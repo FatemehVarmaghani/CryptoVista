@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    android:layout_marginBottom="6dp"
+    android:backgroundTint="?attr/colorPrimaryDark">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/img_item"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_launcher_foreground"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txt_name_item"
+            style="@style/text_style_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Bitcoin"
+            app:layout_constraintBottom_toBottomOf="@+id/img_item"
+            app:layout_constraintStart_toEndOf="@+id/img_item"
+            app:layout_constraintTop_toTopOf="@+id/img_item" />
+
+        <TextView
+            android:id="@+id/txt_symbol_item"
+            style="@style/text_style_very_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text="BTC"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_name_item"
+            app:layout_constraintStart_toEndOf="@+id/txt_name_item"
+            app:layout_constraintTop_toTopOf="@+id/txt_name_item" />
+
+        <TextView
+            android:id="@+id/txt_change_icon_item"
+            style="@style/text_style_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text=">"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
+            app:layout_constraintEnd_toStartOf="@+id/txt_24h_change_item"
+            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+
+        <TextView
+            android:id="@+id/txt_24h_change_item"
+            style="@style/text_style_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="2.1%"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
+            app:layout_constraintEnd_toStartOf="@+id/txt_price_item"
+            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+
+        <TextView
+            android:id="@+id/txt_price_item"
+            style="@style/text_style_large"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$63,026.57"
+            android:textColor="@color/saffron"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+
+        <TextView
+            android:id="@+id/txt_market_cap_item"
+            style="@style/text_style_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="$1,237,911,876,618"
+            app:layout_constraintStart_toStartOf="@+id/img_item"
+            app:layout_constraintTop_toBottomOf="@+id/img_item" />
+
+        <TextView
+            android:id="@+id/txt_24h_volume_item"
+            style="@style/text_style_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$20,467,197,716"
+            app:layout_constraintStart_toStartOf="@+id/txt_change_icon_item"
+            app:layout_constraintTop_toTopOf="@+id/txt_market_cap_item" />
+
+        <TextView
+            android:id="@+id/textView11"
+            style="@style/text_style_very_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Market Cap"
+            app:layout_constraintStart_toStartOf="@+id/txt_market_cap_item"
+            app:layout_constraintTop_toBottomOf="@+id/txt_market_cap_item" />
+
+        <TextView
+            android:id="@+id/textView12"
+            style="@style/text_style_very_small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="24h Volume"
+            app:layout_constraintStart_toStartOf="@+id/txt_24h_volume_item"
+            app:layout_constraintTop_toBottomOf="@+id/txt_24h_volume_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
