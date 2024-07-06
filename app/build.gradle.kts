@@ -59,4 +59,7 @@ dependencies {
 
     //json
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.0-RC")
+
+    //glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
 }

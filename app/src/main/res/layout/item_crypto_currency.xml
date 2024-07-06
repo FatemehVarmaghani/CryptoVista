@@ -6,7 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginTop="6dp"
     android:layout_marginBottom="6dp"
-    android:backgroundTint="?attr/colorPrimaryDark">
+    android:backgroundTint="?attr/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -18,8 +18,9 @@
             android:id="@+id/img_item"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/txt_name_item"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:srcCompat="@tools:sample/avatars" />
 
@@ -29,43 +30,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:ellipsize="end"
+            android:maxWidth="180dp"
+            android:maxLines="1"
             android:text="Bitcoin"
-            app:layout_constraintBottom_toBottomOf="@+id/img_item"
             app:layout_constraintStart_toEndOf="@+id/img_item"
-            app:layout_constraintTop_toTopOf="@+id/img_item" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_symbol_item"
-            style="@style/text_style_very_small"
+            style="@style/text_style_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
+            android:layout_marginStart="8dp"
             android:text="BTC"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_name_item"
-            app:layout_constraintStart_toEndOf="@+id/txt_name_item"
-            app:layout_constraintTop_toTopOf="@+id/txt_name_item" />
+            android:textColor="?attr/colorOnPrimary"
+            app:layout_constraintStart_toEndOf="@+id/img_item"
+            app:layout_constraintTop_toBottomOf="@+id/txt_name_item" />
 
         <TextView
             android:id="@+id/txt_change_icon_item"
-            style="@style/text_style_large"
+            style="@style/text_style_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="2dp"
             android:text=">"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_24h_change_item"
             app:layout_constraintEnd_toStartOf="@+id/txt_24h_change_item"
-            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+            app:layout_constraintTop_toTopOf="@+id/txt_24h_change_item" />
 
         <TextView
             android:id="@+id/txt_24h_change_item"
             style="@style/text_style_large"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:text="2.1%"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
-            app:layout_constraintEnd_toStartOf="@+id/txt_price_item"
-            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_price_item" />
 
         <TextView
             android:id="@+id/txt_price_item"
@@ -74,18 +76,17 @@
             android:layout_height="wrap_content"
             android:text="$63,026.57"
             android:textColor="@color/saffron"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_symbol_item"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txt_symbol_item" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txt_market_cap_item"
             style="@style/text_style_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="20dp"
             android:text="$1,237,911,876,618"
-            app:layout_constraintStart_toStartOf="@+id/img_item"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/img_item" />
 
         <TextView
@@ -94,7 +95,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$20,467,197,716"
-            app:layout_constraintStart_toStartOf="@+id/txt_change_icon_item"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txt_market_cap_item" />
 
         <TextView
