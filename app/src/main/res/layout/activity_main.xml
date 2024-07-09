@@ -23,11 +23,11 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/main_toolbar"
                 style="@style/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:navigationIcon="@drawable/ic_menu"
-                app:title="CryptoVista" />
+                app:navigationIcon="@drawable/ic_menu" />
 
         </com.google.android.material.appbar.AppBarLayout>
 

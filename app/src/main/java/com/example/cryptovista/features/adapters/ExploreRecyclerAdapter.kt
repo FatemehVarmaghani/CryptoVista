@@ -10,10 +10,13 @@ import com.bumptech.glide.Glide
 import com.example.cryptovista.R
 import com.example.cryptovista.databinding.ItemCryptoCurrencyBinding
 import com.example.cryptovista.network.model.CoinList
+import java.text.DecimalFormat
 
-class ExploreRecyclerAdapter(private val context: Context, private val data: List<CoinList.Coin>): RecyclerView.Adapter<ExploreRecyclerAdapter.ExploreViewHolder>() {
+class ExploreRecyclerAdapter(private val context: Context, private val data: List<CoinList.Coin>) :
+    RecyclerView.Adapter<ExploreRecyclerAdapter.ExploreViewHolder>() {
 
-    inner class ExploreViewHolder(private val binding: ItemCryptoCurrencyBinding): RecyclerView.ViewHolder(binding.root) {
+    inner class ExploreViewHolder(private val binding: ItemCryptoCurrencyBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bindData(position: Int) {
             binding.txtNameItem.text = handleNullableData(data[position].name).toString()
@@ -24,12 +27,22 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
                 .into(binding.imgItem)
 
             binding.txtPriceItem.text = "$${data[position].currentPrice.toString()}"
-            binding.txt24hChangeItem.text = "${handleNullableData(data[position].priceChangePercentage24h).toString()}%"
+
+            val percentage = data[position].priceChangePercentage24h
+            setChangeItem(percentage)
+
             val change = data[position].priceChange24h
             setChangeIconItem(change)
+        }
 
-            binding.txtMarketCapItem.text = "$${data[position].marketCap.toString()}"
-            binding.txt24hVolumeItem.text = "$${data[position].totalVolume.toString()}"
+        @SuppressLint("SetTextI18n")
+        private fun setChangeItem(percentage: Double?) {
+            if (percentage != null) {
+                val formattedPercentage = DecimalFormat("#.#").format(percentage)
+                binding.txt24hChangeItem.text = "$formattedPercentage%"
+            } else {
+                binding.txt24hChangeItem.text = "N/A"
+            }
         }
 
         private fun setChangeIconItem(change: Double?) {
@@ -37,8 +50,18 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
                 binding.txtChangeIconItem.text = ""
             } else if (change > 0) {
                 binding.txtChangeIconItem.text = "▲"
-                binding.txtChangeIconItem.setTextColor(ContextCompat.getColor(context, R.color.green))
-                binding.txt24hChangeItem.setTextColor(ContextCompat.getColor(context, R.color.green))
+                binding.txtChangeIconItem.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.green
+                    )
+                )
+                binding.txt24hChangeItem.setTextColor(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.green
+                    )
+                )
             } else {
                 binding.txtChangeIconItem.text = "▼"
                 binding.txtChangeIconItem.setTextColor(ContextCompat.getColor(context, R.color.red))
@@ -48,7 +71,8 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreViewHolder {
-        val binding = ItemCryptoCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding =
+            ItemCryptoCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExploreViewHolder(binding)
     }
 

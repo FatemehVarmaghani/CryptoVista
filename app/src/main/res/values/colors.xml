@@ -4,11 +4,12 @@
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#003f5a</color>
     <color name="blue_light">#00557A</color>
-    <color name="teal">#007a7a</color>
+    <color name="teal">#006666</color>
+    <color name="teal_before">#007a7a</color>
     <color name="champagne">#ebd9c8</color>
     <color name="saffron">#fea02f</color>
     <color name="orange">#de6600</color>
     <color name="gray">#a8a8a8</color>
-    <color name="red">#E3284C</color>
-    <color name="green">#0C9954</color>
+    <color name="red">#FE433E</color>
+    <color name="green">#25C41A</color>
 </resources>
