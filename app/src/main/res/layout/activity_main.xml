@@ -30,7 +30,7 @@
                 android:minHeight="?attr/actionBarSize"
                 app:menu="@menu/menu_toolbar_home"
                 app:navigationIcon="@drawable/ic_menu"
-                app:title="Top Coins" />
+                app:title="@string/app_name" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
