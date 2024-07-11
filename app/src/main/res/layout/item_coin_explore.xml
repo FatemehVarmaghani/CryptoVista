@@ -4,15 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="6dp"
-    android:layout_marginBottom="6dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginBottom="4dp"
     android:backgroundTint="?attr/colorPrimary">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:padding="16dp">
+        android:paddingVertical="8dp"
+        android:paddingHorizontal="16dp">
 
         <ImageView
             android:id="@+id/img_item"
@@ -34,21 +35,19 @@
             android:maxWidth="180dp"
             android:maxLines="1"
             android:text="Bitcoin"
-            app:layout_constraintBottom_toBottomOf="@+id/img_item"
             app:layout_constraintStart_toEndOf="@+id/img_item"
-            app:layout_constraintTop_toTopOf="@+id/img_item" />
+            app:layout_constraintTop_toTopOf="@+id/txt_price_item" />
 
         <TextView
             android:id="@+id/txt_symbol_item"
             style="@style/text_style_medium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="10dp"
             android:text="BTC"
             android:textColor="?attr/colorOnPrimary"
-            app:layout_constraintBottom_toBottomOf="@+id/txt_name_item"
-            app:layout_constraintStart_toEndOf="@+id/txt_name_item"
-            app:layout_constraintTop_toTopOf="@+id/txt_name_item" />
+            app:layout_constraintStart_toEndOf="@+id/img_item"
+            app:layout_constraintTop_toTopOf="@+id/txt_24h_change_item" />
 
         <TextView
             android:id="@+id/txt_change_icon_item"

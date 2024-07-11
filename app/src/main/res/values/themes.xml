@@ -2,7 +2,7 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.CryptoVista" parent="Theme.Material3.DayNight.NoActionBar">
 
-        <item name="colorPrimary">@color/teal</item>
+        <item name="colorPrimary">@color/blue</item>
         <item name="colorOnPrimary">@color/champagne</item>
 
         <item name="colorPrimaryDark">@color/blue</item>

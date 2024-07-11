@@ -1,5 +1,7 @@
 package com.example.cryptovista.features.activities
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Parcelable
 import android.util.Log
@@ -20,42 +22,25 @@ const val FROM_MAIN_ACTIVITY = "from_main_activity"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    private var coinList: List<CoinList.Coin> = listOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        setSupportActionBar(binding.mainToolbar)
 
-        getData()
         firstRun()
         handleBottomNavigation()
-    }
 
-    private fun getData() {
-        //call get functions based on bottom navigation state with when
-        getCoinList()
-    }
+        binding.mainToolbar.setNavigationOnClickListener {
+            //show drawer navigation
+            showToast("navigation")
+        }
 
-    private fun getCoinList() {
-        val apiManager = ApiManager()
-
-        apiManager.getCoinList(object : ApiManager.ApiCallback {
-            override fun onSuccess(data: CoinList) {
-                coinList = data
-                Log.v("castingCoinList", coinList.toString())
-            }
-
-            override fun onFailure(message: String) {
-                showToast(message)
-            }
-
-            override fun onNullOrEmpty() {
-                showToast("There is no data!")
-            }
-
-        })
+        binding.mainToolbar.setOnMenuItemClickListener {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.coingecko.com/"))
+            startActivity(intent)
+            true
+        }
     }
 
     private fun firstRun() {
@@ -63,13 +48,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun fragmentTransaction(id: Int, fragment: Fragment, data: List<Parcelable>? = null) {
-        if (data != null) {
-            val bundle = Bundle()
-            bundle.putParcelableArrayList(FROM_MAIN_ACTIVITY, data as ArrayList<CoinList.Coin>)
-
-            fragment.arguments = bundle
-        }
-
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(id, fragment)
         transaction.commit()
@@ -89,7 +67,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.nav_explore -> {
-                    fragmentTransaction(R.id.main_container, ExploreFragment(), coinList)
+                    fragmentTransaction(R.id.main_container, ExploreFragment())
                     true
                 }
 

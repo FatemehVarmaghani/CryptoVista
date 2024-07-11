@@ -24,6 +24,25 @@ class ApiManager {
         apiService.getCoinList().enqueue(object: Callback<CoinList> {
             override fun onResponse(p0: Call<CoinList>, p1: Response<CoinList>) {
                 val dataReceived = p1.body()
+
+                if (dataReceived.isNullOrEmpty()) {
+                    apiCallback.onNullOrEmpty()
+                } else {
+                    apiCallback.onSuccess(dataReceived)
+                }
+            }
+
+            override fun onFailure(p0: Call<CoinList>, p1: Throwable) {
+                apiCallback.onFailure(p1.message!!)
+            }
+        })
+    }
+
+    fun getTopCoins(apiCallback: ApiCallback) {
+        apiService.getTopCoins().enqueue(object: Callback<CoinList> {
+            override fun onResponse(p0: Call<CoinList>, p1: Response<CoinList>) {
+                val dataReceived = p1.body()
+
                 if (dataReceived.isNullOrEmpty()) {
                     apiCallback.onNullOrEmpty()
                 } else {

@@ -27,11 +27,14 @@
                 style="@style/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:navigationIcon="@drawable/ic_menu" />
+                android:minHeight="?attr/actionBarSize"
+                app:menu="@menu/menu_toolbar_home"
+                app:navigationIcon="@drawable/ic_menu"
+                app:title="Top Coins" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <androidx.fragment.app.FragmentContainerView
+        <FrameLayout
             android:id="@+id/main_container"
             android:layout_width="0dp"
             android:layout_height="0dp"

@@ -8,14 +8,14 @@ import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.cryptovista.R
-import com.example.cryptovista.databinding.ItemCryptoCurrencyBinding
+import com.example.cryptovista.databinding.ItemCoinExploreBinding
 import com.example.cryptovista.network.model.CoinList
 import java.text.DecimalFormat
 
 class ExploreRecyclerAdapter(private val context: Context, private val data: List<CoinList.Coin>) :
     RecyclerView.Adapter<ExploreRecyclerAdapter.ExploreViewHolder>() {
 
-    inner class ExploreViewHolder(private val binding: ItemCryptoCurrencyBinding) :
+    inner class ExploreViewHolder(private val binding: ItemCoinExploreBinding) :
         RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
         fun bindData(position: Int) {
@@ -72,7 +72,7 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ExploreViewHolder {
         val binding =
-            ItemCryptoCurrencyBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            ItemCoinExploreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ExploreViewHolder(binding)
     }
 

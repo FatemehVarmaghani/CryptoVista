@@ -12,4 +12,11 @@ interface ApiService {
     @GET("coins/markets")
     fun getCoinList(@Query("vs_currency") vsCurrency: String = "usd"): Call<CoinList>
 
+    @GET("coins/markets")
+    fun getTopCoins(
+        @Query("vs_currency") vsCurrency: String = "usd",
+        @Query("order") order: String = "market_cap_desc",
+        @Query("per_page") perPage: Int = 10
+    ): Call<CoinList>
+
 }
