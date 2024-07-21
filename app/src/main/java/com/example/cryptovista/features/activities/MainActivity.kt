@@ -1,12 +1,21 @@
 package com.example.cryptovista.features.activities
 
 import android.content.Intent
+import android.graphics.BlendMode
+import android.graphics.BlendModeColorFilter
+import android.graphics.PorterDuff
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.Menu
+import android.widget.AutoCompleteTextView
+import android.widget.ImageView
+import androidx.appcompat.widget.SearchView
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import com.example.cryptovista.EXPLORE_TITLE
 import com.example.cryptovista.HOME_TITLE
@@ -18,8 +27,7 @@ import com.example.cryptovista.features.fragments.ExploreFragment
 import com.example.cryptovista.features.fragments.HomeFragment
 import com.example.cryptovista.features.fragments.NewsFragment
 import com.example.cryptovista.features.fragments.ProfileFragment
-
-const val FROM_MAIN_ACTIVITY = "from_main_activity"
+import com.google.android.material.appbar.MaterialToolbar
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
         firstRun()
         handleBottomNavigation()
+
+        //toolbar
         setSupportActionBar(binding.mainToolbar)
 
         binding.mainToolbar.setNavigationOnClickListener {
@@ -48,7 +58,6 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.item_search_explore -> {
-                    showToast("search:)")
                     true
                 }
 
@@ -103,31 +112,70 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-
         when {
             binding.bottomNavigation.menu.findItem(R.id.nav_home).isChecked -> {
                 binding.mainToolbar.menu.clear()
                 menuInflater.inflate(R.menu.menu_toolbar_home, menu)
+                return true
             }
 
             binding.bottomNavigation.menu.findItem(R.id.nav_news).isChecked -> {
                 binding.mainToolbar.menu.clear()
+                return true
             }
 
             binding.bottomNavigation.menu.findItem(R.id.nav_explore).isChecked -> {
+
+                //setting icons in toolbar
                 binding.mainToolbar.menu.clear()
                 menuInflater.inflate(R.menu.menu_toolbar_explore, menu)
+
+                //setting searchView in toolbar
+                val searchItem = menu?.findItem(R.id.item_search_explore)
+                val searchView = searchItem?.actionView as SearchView
+
+                //searchView style
+                val hintTextView = searchView.findViewById<AutoCompleteTextView>(androidx.appcompat.R.id.search_src_text)
+                hintTextView.hint = "Type Coin Name"
+                hintTextView.setHintTextColor(ContextCompat.getColor(this, R.color.champagne_shade))
+                hintTextView.setTextColor(ContextCompat.getColor(this, R.color.champagne))
+
+                val closeBtn = searchView.findViewById<ImageView>(androidx.appcompat.R.id.search_close_btn)
+                closeBtn.setColorFilter(ContextCompat.getColor(this, R.color.champagne))
+
+                //handling the search
+                searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        query?.let {
+                            val fragment = supportFragmentManager.findFragmentById(R.id.main_container) as ExploreFragment
+                            fragment.filterData(it)
+                        }
+                        return false
+                    }
+
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        newText?.let {
+                            val fragment = supportFragmentManager.findFragmentById(R.id.main_container) as ExploreFragment
+                            fragment.filterData(it)
+                        }
+                        return false
+                    }
+                })
+
+                return true
             }
 
             binding.bottomNavigation.menu.findItem(R.id.nav_profile).isChecked -> {
                 binding.mainToolbar.menu.clear()
+                return true
             }
 
-            else -> {}
+            else -> {
+                return false
+            }
         }
-
-        return true
     }
 
     private fun showToast(message: String) {

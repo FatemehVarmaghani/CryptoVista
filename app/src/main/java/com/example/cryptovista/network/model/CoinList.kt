@@ -1,11 +1,11 @@
 package com.example.cryptovista.network.model
 
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
-import android.os.Parcelable
 
-class CoinList : ArrayList<CoinList.Coin>(){
+class CoinList : ArrayList<CoinList.Coin>() {
     @Parcelize
     data class Coin(
         val id: String?,

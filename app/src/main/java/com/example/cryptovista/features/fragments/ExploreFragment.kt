@@ -5,9 +5,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView.OnQueryTextListener
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptovista.databinding.FragmentExploreBinding
 import com.example.cryptovista.features.adapters.ExploreRecyclerAdapter
 import com.example.cryptovista.network.ApiManager
@@ -16,6 +18,7 @@ import com.example.cryptovista.network.model.CoinList
 class ExploreFragment : Fragment() {
 
     private lateinit var binding: FragmentExploreBinding
+    private var coinList: List<CoinList.Coin> = listOf()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +32,10 @@ class ExploreFragment : Fragment() {
     private fun getData() {
         val apiManager = ApiManager()
 
-        apiManager.getCoinList(object : ApiManager.ApiCallback {
+        apiManager.getCoinList(object : ApiManager.ApiCallback<CoinList> {
             override fun onSuccess(data: CoinList) {
-                setRecyclerView(data)
+                coinList = data
+                setRecyclerView(coinList)
             }
 
             override fun onFailure(message: String) {
@@ -47,7 +51,7 @@ class ExploreFragment : Fragment() {
     private fun setRecyclerView(list: List<CoinList.Coin>) {
         if (context != null) {
             binding.recyclerExplore.adapter = ExploreRecyclerAdapter(requireContext(), list)
-            binding.recyclerExplore.layoutManager = LinearLayoutManager(context)
+            binding.recyclerExplore.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 
@@ -55,6 +59,11 @@ class ExploreFragment : Fragment() {
         if (context != null) {
             Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
         }
+    }
+
+    fun filterData(query: String) {
+        val regex = Regex(query, RegexOption.IGNORE_CASE)
+        setRecyclerView(coinList.filter { it.name!!.contains(regex) })
     }
 
 }

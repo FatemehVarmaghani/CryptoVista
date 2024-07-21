@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.cryptovista.databinding.FragmentHomeBinding
 import com.example.cryptovista.features.adapters.HomeRecyclerAdapter
 import com.example.cryptovista.network.ApiManager
@@ -28,7 +29,7 @@ class HomeFragment : Fragment() {
     private fun getData() {
         val apiManager = ApiManager()
 
-        apiManager.getTopCoins(object: ApiManager.ApiCallback {
+        apiManager.getTopCoins(object: ApiManager.ApiCallback<CoinList> {
             override fun onSuccess(data: CoinList) {
                 setRecycler(data)
             }
@@ -46,7 +47,7 @@ class HomeFragment : Fragment() {
     private fun setRecycler(list: List<CoinList.Coin>) {
         if (context != null) {
             binding.recyclerHome.adapter = HomeRecyclerAdapter(requireContext(), list)
-            binding.recyclerHome.layoutManager = LinearLayoutManager(context)
+            binding.recyclerHome.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
 
