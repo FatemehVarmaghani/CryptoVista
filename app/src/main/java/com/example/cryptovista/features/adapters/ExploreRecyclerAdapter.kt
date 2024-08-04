@@ -7,12 +7,17 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.cryptovista.NOT_AVAILABLE
 import com.example.cryptovista.R
 import com.example.cryptovista.databinding.ItemCoinExploreBinding
 import com.example.cryptovista.network.model.CoinList
 import java.text.DecimalFormat
 
-class ExploreRecyclerAdapter(private val context: Context, private val data: List<CoinList.Coin>) :
+class ExploreRecyclerAdapter(
+    private val context: Context,
+    private val data: List<CoinList.Coin>,
+    private val exploreItemEvent: ExploreItemEvent
+) :
     RecyclerView.Adapter<ExploreRecyclerAdapter.ExploreViewHolder>() {
 
     inner class ExploreViewHolder(private val binding: ItemCoinExploreBinding) :
@@ -33,6 +38,10 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
 
             val change = data[position].priceChange24h
             setChangeIconItem(change)
+
+            binding.root.setOnClickListener {
+                exploreItemEvent.onItemClicked(data[adapterPosition].id)
+            }
         }
 
         @SuppressLint("SetTextI18n")
@@ -41,7 +50,7 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
                 val formattedPercentage = DecimalFormat("#.#").format(percentage)
                 binding.txt24hChangeItem.text = "$formattedPercentage%"
             } else {
-                binding.txt24hChangeItem.text = "N/A"
+                binding.txt24hChangeItem.text = NOT_AVAILABLE
             }
         }
 
@@ -85,7 +94,11 @@ class ExploreRecyclerAdapter(private val context: Context, private val data: Lis
     }
 
     private fun handleNullableData(data: Any?): Any {
-        return data ?: "N/A"
+        return data ?: NOT_AVAILABLE
+    }
+
+    interface ExploreItemEvent {
+        fun onItemClicked(itemId: String?)
     }
 
 }

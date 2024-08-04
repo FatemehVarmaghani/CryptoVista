@@ -63,4 +63,10 @@ dependencies {
     //glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation("jp.wasabeef:glide-transformations:4.3.0")
+
+    //sparkView
+    implementation("com.robinhood.spark:spark:1.2.0")
+
+    //justified textView
+    implementation("com.codesgood:justifiedtextview:1.1.0")
 }

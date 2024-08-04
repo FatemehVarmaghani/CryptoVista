@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_dollar_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/text_style_very_large" />
+
+        <TextView
+            android:id="@+id/txt_price_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text=""
+            android:textAppearance="@style/text_style_very_large" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_change_item_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textAppearance="@style/text_style_large"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/txt_change_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:text=""
+            android:textAppearance="@style/text_style_large"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <TextView
+            android:id="@+id/txt_error_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="data from server is invalid!"
+            android:textAppearance="@style/text_style_large"
+            android:visibility="gone" />
+
+        <com.robinhood.spark.SparkView
+            android:id="@+id/spark_view_chart"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            app:spark_scrubEnabled="true" />
+
+    </FrameLayout>
+
+    <RadioGroup
+        android:id="@+id/radio_group_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_button_24h"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:checked="true"
+            android:text="24H"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_1w"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:text="1W"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_2w"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:text="2W"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_1m"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:text="1M"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_2m"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:text="2M"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radio_button_1y"
+            android:layout_width="56dp"
+            android:layout_height="46dp"
+            android:background="@drawable/selector_radio_button"
+            android:button="@null"
+            android:text="1Y"
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_small"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+    </RadioGroup>
+
+</LinearLayout>

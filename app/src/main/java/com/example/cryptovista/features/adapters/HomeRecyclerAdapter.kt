@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.cryptovista.NOT_AVAILABLE
 import com.example.cryptovista.R
 import com.example.cryptovista.databinding.ItemCoinHomeBinding
 import com.example.cryptovista.network.model.CoinList
@@ -45,7 +46,7 @@ class HomeRecyclerAdapter(private val context: Context, private val data: List<C
                 val formattedPercentage = DecimalFormat("#.#").format(percentage)
                 binding.txt24hChange.text = "$formattedPercentage%"
             } else {
-                binding.txt24hChange.text = "N/A"
+                binding.txt24hChange.text = NOT_AVAILABLE
             }
         }
 

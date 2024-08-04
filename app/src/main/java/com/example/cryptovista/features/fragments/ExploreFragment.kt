@@ -1,5 +1,6 @@
 package com.example.cryptovista.features.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,7 +11,9 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.cryptovista.FROM_MAIN_ACTIVITY
 import com.example.cryptovista.databinding.FragmentExploreBinding
+import com.example.cryptovista.features.activities.CoinDetailsActivity
 import com.example.cryptovista.features.adapters.ExploreRecyclerAdapter
 import com.example.cryptovista.network.ApiManager
 import com.example.cryptovista.network.model.CoinList
@@ -50,7 +53,18 @@ class ExploreFragment : Fragment() {
 
     private fun setRecyclerView(list: List<CoinList.Coin>) {
         if (context != null) {
-            binding.recyclerExplore.adapter = ExploreRecyclerAdapter(requireContext(), list)
+            binding.recyclerExplore.adapter = ExploreRecyclerAdapter(requireContext(), list, object : ExploreRecyclerAdapter.ExploreItemEvent {
+                override fun onItemClicked(itemId: String?) {
+                    val intent = Intent(context, CoinDetailsActivity::class.java)
+
+                    if (itemId != null) {
+                        intent.putExtra(FROM_MAIN_ACTIVITY, itemId)
+                        startActivity(intent)
+                    } else {
+                        showToast("Data no found!")
+                    }
+                }
+            })
             binding.recyclerExplore.layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
         }
     }
