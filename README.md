@@ -1,4 +1,4 @@
-*** CryptoVista
-* Top 10 Cryptocurrencies
+*CryptoVista*
 * Explore through the Cryptocurrencies
-* Latest News
+* Find out deatils about them
+* Read the latest news
