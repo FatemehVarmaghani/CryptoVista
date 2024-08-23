@@ -4,9 +4,12 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.icu.util.Calendar
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowInsets
+import android.view.WindowInsetsController
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -39,6 +42,8 @@ class CoinDetailsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCoinDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        hideNavigationBar()
 
         // setting actionbar & back icon
         setSupportActionBar(binding.toolbarDetails)
@@ -334,5 +339,20 @@ class CoinDetailsActivity : AppCompatActivity() {
 
     private fun showToast(message: String) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
+    }
+
+    fun AppCompatActivity.hideNavigationBar() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.insetsController?.let { controller ->
+                controller.hide(WindowInsets.Type.navigationBars())
+                controller.systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
+            }
+        } else {
+            @Suppress("DEPRECATION")
+            window.decorView.systemUiVisibility = (
+                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                            or View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                    )
+        }
     }
 }

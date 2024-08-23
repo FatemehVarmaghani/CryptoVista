@@ -7,7 +7,11 @@
     android:layout_marginStart="12dp"
     android:layout_marginTop="6dp"
     android:layout_marginEnd="12dp"
-    android:layout_marginBottom="6dp">
+    android:layout_marginBottom="6dp"
+    android:backgroundTint="?attr/colorSecondary"
+    android:elevation="4dp"
+    app:strokeColor="?attr/colorPrimary"
+    app:strokeWidth="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -49,6 +53,7 @@
             android:layout_marginBottom="14dp"
             android:text="cointurken"
             android:textAppearance="@style/text_style_very_small"
+            android:textColor="?attr/colorOnTertiary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_title_item_news"
             app:layout_constraintTop_toBottomOf="@+id/txt_title_item_news" />

@@ -28,7 +28,6 @@ class NewsRecyclerAdapter(private val context: Context, private val data: List<N
 
             binding.txtTitleItemNews.text = newsItem.title
             binding.txtResourceItemNews.text = newsItem.source
-            Log.v("dataShow", data.toString())
 
         }
 

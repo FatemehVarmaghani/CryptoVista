@@ -4,18 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="4dp"
-    android:layout_marginBottom="4dp"
     android:layout_marginStart="6dp"
+    android:layout_marginTop="4dp"
     android:layout_marginEnd="6dp"
-    android:backgroundTint="?attr/colorPrimary">
+    android:layout_marginBottom="4dp"
+    android:backgroundTint="?attr/colorSecondary"
+    app:strokeColor="?attr/colorPrimary"
+    app:strokeWidth="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingVertical="8dp"
-        android:paddingHorizontal="16dp">
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="8dp">
 
         <ImageView
             android:id="@+id/img_item"
@@ -37,6 +39,7 @@
             android:maxWidth="180dp"
             android:maxLines="1"
             android:text="Bitcoin"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintStart_toEndOf="@+id/img_item"
             app:layout_constraintTop_toTopOf="@+id/txt_price_item" />
 
@@ -47,7 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="BTC"
-            android:textColor="?attr/colorOnPrimary"
+            android:textColor="?attr/colorOnTertiary"
             app:layout_constraintStart_toEndOf="@+id/img_item"
             app:layout_constraintTop_toTopOf="@+id/txt_24h_change_item" />
 
@@ -80,7 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$63,026.57"
-            android:textColor="@color/saffron"
+            android:textColor="@color/yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 

@@ -12,7 +12,7 @@
         android:layout_marginStart="12dp"
         android:text="Statistics"
         android:textAppearance="@style/text_style_large"
-        android:textColor="@color/gray" />
+        android:textColor="?attr/colorOnTertiaryFixed" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -30,6 +30,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:text="Market Cap Rank"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_market_cap_rank" />
 
@@ -54,6 +56,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_facebook" />
@@ -64,7 +67,8 @@
             android:layout_height="wrap_content"
             android:text="Today's High"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_today_high" />
 
@@ -78,6 +82,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_website" />
@@ -88,7 +93,8 @@
             android:layout_height="wrap_content"
             android:text="Today's Low"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_today_low" />
 
@@ -102,6 +108,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toStartOf="@+id/guideline"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_reddit" />
@@ -112,7 +119,8 @@
             android:layout_height="wrap_content"
             android:text="Today's Change"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_today_change" />
 
@@ -133,6 +141,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toTopOf="parent" />
@@ -143,7 +152,8 @@
             android:layout_height="wrap_content"
             android:text="Algorithm"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/txt_algorithm" />
 
@@ -156,6 +166,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/textView12" />
@@ -166,7 +177,8 @@
             android:layout_height="wrap_content"
             android:text="Market Cap"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/txt_market_cap_details" />
 
@@ -179,6 +191,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/textView14" />
@@ -189,7 +202,8 @@
             android:layout_height="wrap_content"
             android:text="Total Volume"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/txt_total_volume" />
 
@@ -202,6 +216,7 @@
             android:maxLines="1"
             android:text="N/A"
             android:textAppearance="@style/text_style_large"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/textView16" />
@@ -212,7 +227,8 @@
             android:layout_height="wrap_content"
             android:text="Total Supply"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/gray"
+            android:textColor="?attr/colorOnTertiary"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="@+id/guideline"
             app:layout_constraintTop_toBottomOf="@+id/txt_total_supply" />
 

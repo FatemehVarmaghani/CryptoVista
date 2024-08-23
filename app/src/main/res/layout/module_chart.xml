@@ -15,15 +15,20 @@
             android:id="@+id/txt_dollar_sign"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="@style/text_style_very_large" />
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_large"
+            android:textColor="@color/yellow"
+            android:textSize="36sp" />
 
         <TextView
             android:id="@+id/txt_price_chart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:text=""
-            android:textAppearance="@style/text_style_very_large" />
+            android:textAlignment="center"
+            android:textAppearance="@style/text_style_very_large"
+            android:textColor="@color/yellow"
+            android:textSize="36sp" />
 
     </LinearLayout>
 
@@ -39,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=""
+            android:textAlignment="center"
             android:textAppearance="@style/text_style_large"
             android:textSize="18sp" />
 
@@ -48,8 +54,10 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
             android:text=""
+            android:textAlignment="center"
             android:textAppearance="@style/text_style_large"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
@@ -63,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="data from server is invalid!"
+            android:text="@string/data_from_server_is_invalid"
             android:textAppearance="@style/text_style_large"
             android:visibility="gone" />
 
@@ -72,7 +80,8 @@
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
-            app:spark_scrubEnabled="true" />
+            app:spark_scrubEnabled="true"
+            app:spark_scrubLineColor="?attr/colorOnTertiary" />
 
     </FrameLayout>
 
@@ -91,10 +100,10 @@
             android:background="@drawable/selector_radio_button"
             android:button="@null"
             android:checked="true"
-            android:text="24H"
+            android:text="@string/_24h"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -105,10 +114,10 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:text="1W"
+            android:text="@string/_1w"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -119,10 +128,10 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:text="2W"
+            android:text="@string/_2w"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -133,10 +142,10 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:text="1M"
+            android:text="@string/_1m"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -147,10 +156,10 @@
             android:layout_marginEnd="8dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:text="2M"
+            android:text="@string/_2m"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -160,10 +169,10 @@
             android:layout_height="46dp"
             android:background="@drawable/selector_radio_button"
             android:button="@null"
-            android:text="1Y"
+            android:text="@string/_1y"
             android:textAlignment="center"
             android:textAppearance="@style/text_style_very_small"
-            android:textColor="@color/white"
+            android:textColor="@color/selector_text_radio_button"
             android:textSize="14sp"
             android:textStyle="bold" />
 

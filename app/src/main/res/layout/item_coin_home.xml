@@ -8,7 +8,10 @@
     android:layout_marginTop="4dp"
     android:layout_marginEnd="12dp"
     android:layout_marginBottom="4dp"
-    android:backgroundTint="?attr/colorPrimary">
+    android:backgroundTint="?attr/colorSecondary"
+    android:elevation="4dp"
+    app:strokeColor="?attr/colorPrimary"
+    app:strokeWidth="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -21,6 +24,7 @@
             android:id="@+id/img"
             android:layout_width="32dp"
             android:layout_height="32dp"
+            android:contentDescription="@string/coin_image"
             app:layout_constraintBottom_toBottomOf="@+id/txt_symbol"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txt_name"
@@ -37,6 +41,7 @@
             android:maxWidth="180dp"
             android:maxLines="1"
             android:text="Bitcoin"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintStart_toEndOf="@+id/img"
             app:layout_constraintTop_toTopOf="@+id/txt_price" />
 
@@ -47,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
             android:text="BTC"
-            android:textColor="?attr/colorOnPrimary"
+            android:textColor="?attr/colorOnTertiary"
             app:layout_constraintBottom_toBottomOf="@+id/txt_24h_change"
             app:layout_constraintStart_toEndOf="@+id/img"
             app:layout_constraintTop_toBottomOf="@+id/txt_name" />
@@ -80,7 +85,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$63,026.57"
-            android:textColor="@color/saffron"
+            android:textColor="@color/yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -90,6 +95,7 @@
             android:layout_height="wrap_content"
             android:text="$27,901,290,417"
             android:textAppearance="@style/text_style_medium"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/txt_market_cap" />
 
@@ -100,6 +106,7 @@
             android:layout_marginTop="12dp"
             android:text="$1,159,834,886,009"
             android:textAppearance="@style/text_style_medium"
+            android:textColor="?attr/colorOnPrimary"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_24h_change" />
 
@@ -110,6 +117,7 @@
             android:layout_marginBottom="2dp"
             android:text="24h Volume"
             android:textAppearance="@style/text_style_very_small"
+            android:textColor="?attr/colorOnTertiary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/txt_24h_volume"
             app:layout_constraintTop_toBottomOf="@+id/txt_24h_volume" />
@@ -121,6 +129,7 @@
             android:layout_marginBottom="2dp"
             android:text="Market Cap"
             android:textAppearance="@style/text_style_very_small"
+            android:textColor="?attr/colorOnTertiary"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/txt_market_cap"
             app:layout_constraintTop_toBottomOf="@+id/txt_market_cap" />

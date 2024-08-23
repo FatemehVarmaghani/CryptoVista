@@ -3,4 +3,12 @@
     <string name="news_image">news image</string>
     <string name="news_title">news title</string>
     <string name="dot">.</string>
+    <string name="data_from_server_is_invalid">data from server is invalid!</string>
+    <string name="_24h">24H</string>
+    <string name="_1w">1W</string>
+    <string name="_2w">2W</string>
+    <string name="_1m">1M</string>
+    <string name="_2m">2M</string>
+    <string name="_1y">1Y</string>
+    <string name="coin_image">coin image</string>
 </resources>

@@ -1,6 +1,7 @@
 package com.example.cryptovista.features.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,10 +18,6 @@ class NewsFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsBinding
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -36,6 +33,8 @@ class NewsFragment : Fragment() {
         apiManager.getNewsList(object : ApiManager.ApiCallback<News> {
             override fun onSuccess(data: News) {
                 val newsList = data.data
+                Log.v("newsData", data.toString())
+                Log.v("newsData", data.data.toString())
                 setRecycler(newsList)
             }
 
